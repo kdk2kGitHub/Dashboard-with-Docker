@@ -1,10 +1,17 @@
+git clone https://github.com/kdk2kGitHub/Dashboard-with-Docker.git
+cd Dashboard-with-Docker
 vagrant up
+vagrant upload Dockerfile
+vagrant ssh
+#Now In VM environment
+ls
+cat Dockerfile
 sudo docker run hello-world
-sudo -i
-cd ..
-cd home
-vim Dockerfile
-
-sudo docker login <enter username / password for hub.docker.com
+sudo docker login #<enter username / password> for hub.docker.com
 sudo docker build -t webcontainer .
-sudo docker run -d -p8080:80 --name webContainer myContainer
+#sudo docker run -d -p8080:80 --name runningContainer myContainerImageToRun
+sudo docker run -d -p8080:80 --name myDashboard webcontainer
+sudo docker ps
+exit 
+vagrant halt
+
