@@ -1,0 +1,10 @@
+vagrant up
+sudo docker run hello-world
+sudo -i
+cd ..
+cd home
+vim Dockerfile
+
+sudo docker login <enter username / password for hub.docker.com
+sudo docker build -t webcontainer .
+sudo docker run -d -p8080:80 --name webContainer myContainer
